@@ -1,0 +1,49 @@
+$errorColor: #ef8d8dfa
+$errorBg: rgb(192 29 29 /15%)
+$errorBorder: rgba(255,25,0,0.322)
+
+$defaultColor: #c8c8c8
+$defaultBg: rgb(29 31 32 /71%)
+$defaultBorder: #c8c8c8
+
+$infoColor: #bcc0ff
+$infoBg: rgb(100 108 255 / 8%)
+$infoBorder: #646cff
+
+$warningColor: #fcd253
+$warningBg: rgb(255 197 23 / 5%)
+$warningBorder: rgba(255, 213, 0, 0.793)
+
+$successColor: #7acf58d6
+$successBg: rgba(246, 238, 9, 0.127)
+$successBorder: rgba(0, 255, 0, 0.322)
+
+@mixin alert($name,$borderColor, $bgColor, $color)
+  .#{$name}
+    border: 2px dotted $borderColor
+    border-radius: 0.8rem
+    padding: 1.3rem
+    background-color: $bgColor
+    color: $color
+    margin: 20px
+
+  .alert-header
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+  p
+    margin-top: 1.2rem
+    font-size: 0.9rem
+    line-height: 1.5rem
+    font-weight: 500
+
+  .close
+    cursor: pointer
+
+
+@include alert("alert-danger",$errorBorder,$errorBg,$errorColor)
+@include alert("alert-info",$infoBorder,$infoBg,$infoColor)
+@include alert("alert-warning",$warningBorder,$warningBg,$warningColor)
+@include alert("alert-default",$defaultBorder,$defaultBg,$defaultColor)
+@include alert("alert-success",$successBorder,$successBg,$successColor)
